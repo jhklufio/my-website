@@ -63,13 +63,21 @@ form.addEventListener('submit', function(e) {
         });
 });
 
-if(window.location.pathname.endsWith(".html")){
-    let newPath = window.location.pathname.replace(/\.html$/, "");
+if(window.location.pathname.includes(".html")){
+    let newPath = window.location.pathname.replace(/\.html/g, "");
 
     if(newPath !== window.location.pathname){
     window.history.replaceState(null, "", newPath)
     }
-}
+};
+
+document.querySelectorAll('a').forEach(link =>{
+    let href = link.getAttribute('href');
+    if(href && href.includes(".html")){
+        let updatedHref = href.replace(/\.html/g, "");
+        link.setAttribute('href', updatedHref)
+    }
+});
 
     
 
