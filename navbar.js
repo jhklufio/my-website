@@ -63,3 +63,13 @@ form.addEventListener('submit', function(e) {
         });
 });
 
+if(window.location.pathname.includes(".html")){
+    let newPath = window.location.pathname.replace(/\.html/g, "");
+
+    if(newPath !== window.location.pathname){
+    window.history.replaceState(null, "", newPath)
+    }
+}
+
+    
+
