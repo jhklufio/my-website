@@ -63,8 +63,8 @@ form.addEventListener('submit', function(e) {
         });
 });
 
-if(window.location.pathname.includes(".html")){
-    let newPath = window.location.pathname.replace(/\.html/g, "");
+if(window.location.pathname.endsWith(".html")){
+    let newPath = window.location.pathname.replace(/\.html$/, "");
 
     if(newPath !== window.location.pathname){
     window.history.replaceState(null, "", newPath)
