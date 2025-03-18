@@ -44,12 +44,7 @@ form.addEventListener('submit', function(e) {
         })
         .then(async (response) => {
             let json = await response.json();
-            if (response.status == 200) {
-                result.innerHTML = "Form submitted successfully!";
-            } else {
-                console.log(response);
-                result.innerHTML = json.message;
-            }
+            console.log(response);
         })
         .catch(error => {
             console.log(error);
@@ -61,22 +56,6 @@ form.addEventListener('submit', function(e) {
                 result.style.display = "none";
             }, 1000);
         });
-});
-
-if(window.location.pathname.includes(".html")){
-    let newPath = window.location.pathname.replace(/\.html/g, "");
-
-    if(newPath !== window.location.pathname){
-    window.history.replaceState(null, "", newPath)
-    }
-};
-
-document.querySelectorAll('a').forEach(link =>{
-    let href = link.getAttribute('href');
-    if(href && href.includes(".html")){
-        let updatedHref = href.replace(/\.html/g, "");
-        link.setAttribute('href', updatedHref)
-    }
 });
 
     
